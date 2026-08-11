@@ -1,0 +1,220 @@
+{
+  "Tags": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "^(hello|hi|hey|hiya|greetings)$"
+      ],
+      "responses": [
+        "Hello! Where would you like to travel today?",
+        "Hi there! Where would you like to go?",
+        "Hey! Tell me a destination you're interested in."
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "my name is (?P<name>[A-Za-z]+)",
+        "i am (?P<name>[A-Za-z]+)$",
+        "call me (?P<name>[A-Za-z]+)"
+      ],
+      "responses": [
+        "Nice to meet you, {name}! I'll remember your name.",
+        "Great, {name}! How can I help you today?",
+        "Hello {name}, what destination are you curious about?"
+      ]
+    },
+    {
+      "tag": "feeling",
+      "patterns": [
+        "i am feeling (?P<mood>.+)",
+        "i feel (?P<mood>.+)"
+      ],
+      "responses": [
+        "Thanks for sharing that you're feeling {mood}.",
+        "I see, you're feeling {mood}.",
+        "Feeling {mood} is completely normal."
+      ]
+    },
+    {
+      "tag": "city_sentiment",
+      "patterns": [
+        "i (really )?(?P<mood>love|like|enjoy|hate|dislike) (?P<city>[A-Za-z ]+)",
+        "(?P<city>[A-Za-z ]+) is (?P<mood>nice|boring|amazing|bad|lovely|terrible|fun)",
+        "(?P<city>[A-Za-z ]+) makes me (?P<mood>happy|sad|angry|upset)"
+      ],
+      "responses": [
+        "I see you feel {mood} about {city}.",
+        "Interesting feelings about {city}.",
+        "Thanks for sharing how you feel about {city}."
+      ]
+    },
+    {
+      "tag": "recall_city",
+      "patterns": [
+        "what city did i say i (?P<mood>love|like|enjoy)",
+        "what city did i say i (?P<mood>hate|dislike)",
+        "how do i feel about (?P<city>[A-Za-z ]+)",
+        "what did i say about (?P<city>[A-Za-z ]+)",
+        "what city did i say i like",
+        "what city did i say i hate"
+      ],
+      "responses": [
+        "Let me check what you told me earlier:",
+        "Let me look back at what you said:",
+        "Let's review what you mentioned before:"
+      ]
+    },
+    {
+      "tag": "fact_city",
+      "patterns": [
+        "tell me about (?P<city>[A-Za-z ]+)",
+        "give me a fact about (?P<city>[A-Za-z ]+)",
+        "what can you tell me about (?P<city>[A-Za-z ]+)",
+        "what currency does (?P<city>[A-Za-z ]+) use",
+        "what language do they speak in (?P<city>[A-Za-z ]+)",
+        "what do they speak in (?P<city>[A-Za-z ]+)",
+        "what is the population of (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "Here's something about {city}:",
+        "Let me tell you something about {city}:"
+      ]
+    },
+    {
+      "tag": "fact_object",
+      "patterns": [
+        "what about (?P<object>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "Let me check what I know about {object}.",
+        "Here's something related to {object}:"
+      ]
+    },
+    {
+      "tag": "where_city",
+      "patterns": [
+        "where is (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "{city}? I can help you explore that place.",
+        "{city} is somewhere interesting—I can tell you more if you'd like.",
+        "Good question! Let me think more about {city}."
+      ]
+    },
+    {
+      "tag": "live_city",
+      "patterns": [
+        "i live in (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "{city} sounds like a beautiful place to live!",
+        "Nice! Living in {city} must be interesting.",
+        "Great — I'll remember you're from {city}."
+      ]
+    },
+    {
+      "tag": "favourite_city",
+      "patterns": [
+        "my favourite city is (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "{city}? Great choice! I'll remember that.",
+        "Nice! {city} is a fantastic city.",
+        "I'll keep {city} in mind for future suggestions."
+      ]
+    },
+    {
+      "tag": "trip_length",
+      "patterns": [
+        "i want to visit (?P<city>[A-Za-z ]+) for (?P<days>\\d+) days",
+        "book me (?P<days>\\d+) days in (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "{name}, {city} for {days} days sounds like a great plan!",
+        "Okay, planning a {days}-day stay in {city}."
+      ]
+    },
+    {
+      "tag": "travel_to_city",
+      "patterns": [
+        "how do i get to (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "Travelling to {city} is usually easiest by plane.",
+        "Most people reach {city} by air, but trains or buses might also be available.",
+        "Getting to {city}? Flights are usually the most convenient option."
+      ]
+    },
+    {
+      "tag": "things_to_do",
+      "patterns": [
+        "what can i do in (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "There's plenty to do in {city}! Want attractions, food, or cultural highlights?",
+        "{city} has lots of interesting activities. What are you into?",
+        "In {city}, you can explore historic sites, try local food, and visit landmarks!"
+      ]
+    },
+    {
+      "tag": "question_fallback",
+      "patterns": [
+        ".*\\?$"
+      ],
+      "responses": [
+        "That's an interesting question, but I'm not sure how to answer it.",
+        "I'm still learning, so I don't have an answer to that yet.",
+        "Good question! I'll try to improve."
+      ]
+    }
+  ],
+  "QA": {
+    "what is your purpose": "I am a travel assistant chatbot that helps you explore cities and destinations.",
+    "what can you do": "I can chat about cities, suggest destinations, and answer simple questions.",
+    "who are you": "I'm your travel assistant chatbot!",
+    "what is your name": "I don't really have a name, but you can call me your travel assistant."
+  },
+  "MoodResponses": {
+    "positive": [
+      "You seem in a great mood! Maybe you'd enjoy visiting {city}.",
+      "Glad to hear you're feeling good! How about a trip to {city}?"
+    ],
+    "negative": [
+      "Sorry you're feeling low. A relaxing trip to {city} might help."
+    ],
+    "neutral": [
+      "Got it. If you're looking for inspiration, how about {city}?"
+    ]
+  },
+  "CitySentimentResponses": {
+    "positive": [
+      "Great! I'm happy you feel positively about {city}."
+    ],
+    "negative": [
+      "I understand you feel negatively about {city}."
+    ],
+    "neutral": [
+      "Thanks for sharing how you feel about {city}."
+    ]
+  },
+  "MemoryRecall": {
+    "positive": [
+      "You told me earlier you like {city}!"
+    ],
+    "negative": [
+      "Since you dislike {city}, you might enjoy visiting {alt} instead."
+    ]
+  },
+  "Suggestions": {
+    "positive": ["Barcelona", "Tokyo", "New York"],
+    "negative": ["Kyoto", "Vienna", "Reykjavik"],
+    "neutral": ["Rome", "Paris", "Berlin"],
+    "alternatives": ["Paris", "Barcelona", "Tokyo", "Lisbon", "Prague"]
+  },
+  "Fallback": [
+    "I'm not sure I understand. Can you rephrase?",
+    "Hmm... I'm not certain what you mean.",
+    "Could you try asking that another way?"
+  ]
+}
