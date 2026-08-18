@@ -125,6 +125,19 @@
       ]
     },
     {
+      "tag": "travel_desire",
+      "patterns": [
+        "i want to go to (?P<city>[A-Za-z ]+)",
+        "i want to visit (?P<city>[A-Za-z ]+)",
+        "take me to (?P<city>[A-Za-z ]+)",
+        "let's go to (?P<city>[A-Za-z ]+)"
+      ],
+      "responses": [
+        "{city} sounds wonderful! How many days were you thinking of staying?",
+        "Great choice. What would you like to know about {city} before you go?"
+      ]
+    },
+    {
       "tag": "trip_length",
       "patterns": [
         "i want to visit (?P<city>[A-Za-z ]+) for (?P<days>\\d+) days",
