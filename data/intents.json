@@ -138,6 +138,17 @@
       ]
     },
     {
+      "tag": "currency_conversion",
+      "patterns": [
+        "convert (?P<amount>\\d+) (?P<base>[A-Za-z]+) to (?P<target>[A-Za-z]+)",
+        "how much is (?P<amount>\\d+) (?P<base>[A-Za-z]+) in (?P<target>[A-Za-z]+)",
+        "what is (?P<amount>\\d+) (?P<base>[A-Za-z]+) in (?P<target>[A-Za-z]+)"
+      ],
+      "responses": [
+        "{amount} {base} is currently {converted_amount} {target}."
+      ]
+    },
+    {
       "tag": "trip_length",
       "patterns": [
         "i want to visit (?P<city>[A-Za-z ]+) for (?P<days>\\d+) days",

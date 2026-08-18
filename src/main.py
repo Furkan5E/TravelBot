@@ -6,8 +6,9 @@ def main():
 
     intents_path = os.path.join(current_dir, "..", "data", "intents.json")
     facts_path = os.path.join(current_dir, "..", "data", "facts.json")
+    currencies_path = os.path.join(current_dir, "..", "data", "currencies.json")
 
-    bot = TravelBot(intents_path, facts_path)
+    bot = TravelBot(intents_path, facts_path, currencies_path)
 
     print("TRAVEL BOT: Hello! I'm your travel assistant.")
 

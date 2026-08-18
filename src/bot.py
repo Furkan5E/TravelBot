@@ -1,16 +1,18 @@
 import json
 import re
 import random
+import requests
 from memory import MemoryManager
 from nlp import NLPProcessor
 
 class TravelBot:
-    def __init__(self, intents_path, facts_path):
+    def __init__(self, intents_path, facts_path, currencies_path):
         self.memory = MemoryManager()
         self.nlp = NLPProcessor()
         
         intents = self.load_json(intents_path)
         facts = self.load_json(facts_path)
+        self.currencies = self.load_json(currencies_path)
         
         self.data = {
             "patterns": self.build_patterns(intents),
@@ -28,7 +30,8 @@ class TravelBot:
         "city_sentiment": self._handle_city_sentiment,
         "fact_city": self._handle_fact_city,
         "fact_object": self._handle_fact_object,
-        "recall_city": self._handle_recall_city
+        "recall_city": self._handle_recall_city,
+        "currency_conversion": self._handle_currency
     }
 
     @staticmethod
@@ -173,6 +176,37 @@ class TravelBot:
                     return random.choice(self.data["MemoryRecall"]["negative"]).format(city=city, alt=alt)
                     
         return "I don't think you told me that yet."
+
+    def _handle_currency(self, entry, captured, user_text):
+        amount = captured.get("amount")
+        base = captured.get("base", "").lower()
+        target = captured.get("target", "").lower()
+
+        base_code = self.currencies.get(base)
+        target_code = self.currencies.get(target)
+
+        if not base_code or not target_code:
+            return "Sorry, I don't know the exchange rate for those specific currencies."
+
+        try:
+            #call the currency exchange API
+            response = requests.get(f"https://open.er-api.com/v6/latest/{base_code}")
+            api_data = response.json()
+
+            rate = api_data["rates"].get(target_code)
+            if rate:
+                converted = round(float(amount) * rate, 2)
+                template = random.choice(entry["responses"])
+                return template.format(
+                    amount=amount, 
+                    base=base.title(), 
+                    converted_amount=converted, 
+                    target=target.title()
+                )
+        except Exception:
+            return "Sorry, I couldn't reach the live currency exchange service right now."
+
+        return "I couldn't calculate that exchange rate at the moment."
 
     def respond(self, text):
         ans = self.data["qa"].get(text.lower())
