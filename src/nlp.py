@@ -25,19 +25,24 @@ class NLPProcessor:
         
         for word, pos in tagged:
             if pos in ("NNP", "NNPS"):
-                return word, None, None
-
-        for word, pos in tagged:
-            if pos.startswith("NN"):
                 subject = word
+                break 
+
+        if not subject:
+            for word, pos in tagged:
+                if pos.startswith("NN"):
+                    subject = word
 
         for word, pos in tagged:
             if pos.startswith("VB"):
                 verb = word
                 break
 
+        found_verb = False
         for word, pos in tagged:
-            if verb and (pos.startswith("NN") or pos.startswith("JJ")):
+            if word == verb:
+                found_verb = True
+            elif found_verb and (pos.startswith("NN") or pos.startswith("JJ")):
                 obj = word
 
         return subject, verb, obj
