@@ -6,13 +6,13 @@ from memory import MemoryManager
 from nlp import NLPProcessor
 
 class TravelBot:
-    def __init__(self, intents_path, facts_path, currencies_path):
+    def __init__(self, config):
         self.memory = MemoryManager()
         self.nlp = NLPProcessor()
         
-        intents = self.load_json(intents_path)
-        facts = self.load_json(facts_path)
-        self.currencies = self.load_json(currencies_path)
+        intents = self.load_json(config.intents)
+        facts = self.load_json(config.facts)
+        currencies = self.load_json(config.currencies)
         
         self.data = {
             "patterns": self.build_patterns(intents),
@@ -22,7 +22,8 @@ class TravelBot:
             "MemoryRecall": intents["MemoryRecall"],
             "Suggestions": intents["Suggestions"],
             "fallback": intents["Fallback"],
-            "facts": facts["Facts"]
+            "facts": facts["Facts"],
+            "currencies": currencies
         }
 
         self.handlers = {
@@ -182,8 +183,8 @@ class TravelBot:
         base = captured.get("base", "").lower()
         target = captured.get("target", "").lower()
 
-        base_code = self.currencies.get(base)
-        target_code = self.currencies.get(target)
+        base_code = self.data["currencies"].get(base)
+        target_code = self.data["currencies"].get(target)
 
         if not base_code or not target_code:
             return "Sorry, I don't know the exchange rate for those specific currencies."

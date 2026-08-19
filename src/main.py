@@ -1,14 +1,9 @@
-import os
 from bot import TravelBot
+from config import BotConfig
 
 def main():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-
-    intents_path = os.path.join(current_dir, "..", "data", "intents.json")
-    facts_path = os.path.join(current_dir, "..", "data", "facts.json")
-    currencies_path = os.path.join(current_dir, "..", "data", "currencies.json")
-
-    bot = TravelBot(intents_path, facts_path, currencies_path)
+    config = BotConfig()
+    bot = TravelBot(config)
 
     print("TRAVEL BOT: Hello! I'm your travel assistant.")
 
