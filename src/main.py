@@ -5,17 +5,24 @@ def main():
     config = BotConfig()
     bot = TravelBot(config)
 
-    print("TRAVEL BOT: Hello! I'm your travel assistant.")
+    BLUE = "\033[94m"
+    GREEN = "\033[92m"
+    RESET = "\033[0m"
+
+    print(f"{BLUE}TRAVEL BOT: {RESET}Hello! I'm your travel assistant.")
 
     try:
         while True:
-            text = input("You: ")
+            text = input(f"{GREEN}You:{RESET} ")
             if text.lower() == "quit":
-                print("TRAVEL BOT: Goodbye!")
+                print(f"{BLUE}TRAVEL BOT:{RESET} Goodbye!")
                 break
-            print("TRAVEL BOT:", bot.respond(text))
+            
+            response = bot.respond(text)
+            print(f"{BLUE}TRAVEL BOT:{RESET} {response}")
+            
     except KeyboardInterrupt:
-        print("\nTRAVEL BOT: Goodbye!")
+        print(f"\n{BLUE}TRAVEL BOT:{RESET} Goodbye!")
 
 if __name__ == "__main__":
     main()
