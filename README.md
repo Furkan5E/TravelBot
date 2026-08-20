@@ -38,7 +38,7 @@ uv run python src/main.py
 
 To run the automated tests.
 ```bash
-python -m pytest
+uv run pytest
 ```
 
 ---
