@@ -290,20 +290,26 @@ wheels = [
 
 [[package]]
 name = "travelbot"
-version = "0.1.0"
+version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "nltk" },
-    { name = "pytest" },
     { name = "requests" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "nltk", specifier = ">=3.10.2" },
-    { name = "pytest", specifier = ">=9.1.1" },
     { name = "requests", specifier = ">=2.34.2" },
 ]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=9.1.1" }]
 
 [[package]]
 name = "urllib3"

@@ -1,11 +1,15 @@
 [project]
 name = "travelbot"
-version = "0.1.0"
-description = "Add your description here"
+version = "1.0.0"
+description = "A conversational AI travel assistant CLI built with Python, featuring NLP sentiment analysis, contextual memory, and real time currency exchange."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "nltk>=3.10.2",
-    "pytest>=9.1.1",
     "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
 ]
