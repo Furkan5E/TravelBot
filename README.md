@@ -8,6 +8,8 @@
 
 A lightweight, object-oriented conversational AI travel assistant and CLI tool that utilises natural language processing for dynamic sentiment analysis and real time data integration.
 
+[![Download Latest Release](https://img.shields.io/github/v/release/Furkan5E/TravelBot?style=for-the-badge&label=DOWNLOAD%20.WHL&color=success)](https://github.com/Furkan5E/TravelBot/releases/latest)
+
 ---
 
 ## Features
