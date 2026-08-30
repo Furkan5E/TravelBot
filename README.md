@@ -4,7 +4,7 @@
 ![Build](https://img.shields.io/badge/Build-uv-purple.svg)
 ![Docker](https://img.shields.io/badge/Docker-Supported-2496ED.svg?logo=docker)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Tests](https://img.shields.io/badge/pytest-passing-brightgreen.svg)
+[![Test Suite](https://github.com/Furkan5E/TravelBot/actions/workflows/test.yaml/badge.svg)](https://github.com/Furkan5E/TravelBot/actions/workflows/test.yaml)
 
 A lightweight, object-oriented conversational AI travel assistant and CLI tool that utilises natural language processing for dynamic sentiment analysis and real time data integration.
 
