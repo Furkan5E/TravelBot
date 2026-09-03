@@ -1,6 +1,6 @@
 # TravelBot
 
-![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.x-blue.svg?logo=python)
 ![Build](https://img.shields.io/badge/Build-uv-purple.svg)
 ![Docker](https://img.shields.io/badge/Docker-Supported-2496ED.svg?logo=docker)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -53,6 +53,10 @@ docker build -t travelbot .
 Run the container.
 ```bash
 docker run -it travelbot
+```
+Pre-built container:
+```bash
+docker run -it --rm ghcr.io/furkan5e/travelbot:latest
 ```
 ---
 ## Example Conversation
